@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<div class= "card-body">
+<!-- Default form contact -->
+
+<form class="text-center border border-light p-5" method=POST>
+ {% csrf_token %}
+    <h2 class="title" style="float : left; padding : 10px;">Add new item</h2><br><br><br>
+   {% for field in form %}
+    <div class="row">
+       <div class="col-md-2">
+        {{ field.label_tag }}
+        </div><div class="col-md-10 pull-left">
+         {{ field }}
+       </div>
+    </div>
+    <br>
+ {% endfor %}
+ <h6 class = "text-danger">{{ error }}</h6>
+    {% comment %} {{form.as_p}} {% endcomment %}
+     {% comment %} {% for field in form %}
+    <div class="form-group row mb-4">
+    <label for="id_{{field.name}}" class=" input--style-2">{{field.label}} </label> 
+    <div class= "input--style-2">
+    <br>
+    {{field}}
+    </div>
+    </div>
+    {% endfor %} {% endcomment %}
+    <!-- Send button --> 
+    <button class="btn btn-info bg-dark btn-block" style="float : left; padding : 10px; width : 20%;" type="submit">Send</button>
+
+</form>
+</div>
+<!-- Default form contact -->
+
+
+{% endblock %}

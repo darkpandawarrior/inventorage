@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<div class= "card-body">
+<!-- Default form contact -->
+
+<form class="text-center border border-light p-5" method=POST>
+ {% csrf_token %}
+    <h2 class="title" style="float : left; padding : 10px;">Update Item</h2><br><br><br>
+   {% for field in form %}
+    <div class="row">
+       <div class="col-md-2">
+        {{ field.label_tag }}
+        </div><div class="col-md-10 pull-left">
+         {{ field }}
+       </div>
+    </div>
+    <br>
+ {% endfor %}
+ <p class = "text-primary">{{Note}}</p>
+ <p class = "text-danger">{{ error }}</p>
+   
+    <!-- Send button --> 
+    <button class="btn btn-info bg-dark btn-block" style="float : left; padding : 10px; width : 20%;" type="submit">Update</button>
+
+</form>
+</div>
+<!-- Default form contact -->
+
+
+{% endblock %}

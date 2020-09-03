@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% load static %}
+<head><!-- Custom styles for this page -->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+
+<div class="container-fluid">
+
+          <!-- Page Heading -->
+         
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+           
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Description</th>
+                      <th>Quantity</th>
+                      <th>Cost Price</th>
+                      <th>Selling Price</th>
+                      <th>Total Price</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Description</th>
+                      <th>Quantity</th>
+                      <th>Cost Price</th>
+                      <th>Selling Price</th>
+                      <th>Total Price</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                   {% for item in item_set %}
+                   <tr>
+                      <td>{{item.itemsID_inv}}</td>
+                      <td>{{item.itemsDesc_inv}}</td>
+                      <td>{{item.itemsQnt_inv}}</td>
+                      <td>{{item.itemsCostPrice_inv}}</td>
+                      <td>{{item.itemsSellPrice_inv}}</td>
+                      <td>{{item.itemsTotalPrice_inv}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+
+
+
+{% endblock %}
